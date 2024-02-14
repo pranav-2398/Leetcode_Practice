@@ -1,0 +1,39 @@
+from collections import Counter
+from typing import List
+
+
+# class Solution:
+#     def findErrorNums(self, nums: List[int]) -> List[int]:
+#         res = [0, 0]
+
+#         count = Counter(nums)
+#         for i in range(1, len(nums) + 1):
+#             if count[i] == 0:
+#                 res[1] = i
+#             elif count[i] == 2:
+#                 res[0] = i
+
+#         return res
+
+############################################################
+
+#### IN PLACE SOLN #########################################
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        res = [0, 0]
+
+        for n in nums:
+            n = abs(n)
+            if nums[n - 1] < 0:
+                res[0] = n
+            nums[n - 1] = -nums[n - 1]
+
+        for i, n in enumerate(nums):
+            if n > 0 and i + 1 != res[0]:
+                res[1] = i + 1
+                return res
+############################################################
+            
+s = Solution()
+nums = [1,2,2,4]
+print(s.findErrorNums(nums))
