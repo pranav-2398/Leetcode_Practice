@@ -26,8 +26,7 @@ class Solution:
                 if dfs(r, c, 0):
                     return True
         
-        res = dfs(0, 0, 0)
-        return res
+        return False
     
 s = Solution()
 board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
