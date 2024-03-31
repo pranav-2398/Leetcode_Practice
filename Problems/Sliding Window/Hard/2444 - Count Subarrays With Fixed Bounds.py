@@ -21,7 +21,8 @@ class Solution:
             res += max(0, min(left_idx, right_idx) - bad_idx)
 
         return res
-        
+
+
 s = Solution()
 # nums = [1,3,5,2,7,5]
 # minK = 1
